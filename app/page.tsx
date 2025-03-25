@@ -14,8 +14,8 @@ export default function Home() {
           priority
         />
         <ol>
-          <li>
-            Let's Go<code>app/page.tsx</code>.
+          <li> 
+            Let's Go To Do It<code>app/page.tsx</code>.
           </li>
           <li>Save and see your changes instantly.</li>
         </ol>
