@@ -5,7 +5,7 @@ export const Navbar = () => {
   return (
     <nav>
       <div>
-        <Link href="/">My Ecommerce Website In 2025, Let&apos;s Do it Inshallah</Link>
+        <Link href="/">My ecommerce website</Link>
       </div>
     </nav>
   );
