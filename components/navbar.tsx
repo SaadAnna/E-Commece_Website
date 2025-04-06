@@ -3,8 +3,8 @@ import React from "react";
 
 export const Navbar = () => {
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow">
-      <div className="container mx-auto flex items-center justify-between px-4 py-4">
+    <nav className="sticky z-50 bg-white shadow mx-auto">
+      <div className="container mx-auto flex items-center justify-between px-4 py-20 ng-red-500">
         <Link href="/" className="text-white hover:text-blue-600">
           Hello
         </Link>
