@@ -1,3 +1,4 @@
+import Link from "next/link";
 export const Navbar = () => {
   return (
     <header className="py-4 border-b border-black md:border-none sticky top-0 z-10 ">
@@ -12,12 +13,15 @@ export const Navbar = () => {
           </div>
           <div className="hidden md:block mx-auto"  id="navabar">
             <nav className="flex gap-8 text-sm">
-              <a href="#" className="text-black text-base transition">
+              <Link href="/" className="text-black text-base transition">
                 Home
-              </a>
-              <a href="#" className="text-black text-base transition">
+              </Link>
+              <Link href="/products" className="text-black text-base transition">
                 Products
-              </a>
+              </Link>
+              <Link href="/chekcout" className="text-black text-base transition">
+                Checkout
+              </Link>
              
             </nav>
           </div>
