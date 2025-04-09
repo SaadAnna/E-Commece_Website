@@ -8,7 +8,7 @@ export const Navbar = () => {
           <div className="absolute inset-0 backdrop-blur -z-10 hidden md:block"></div>
           <div>
             <div className="border h-10 w-10 text-bold text-3xl rounded-lg inline-flex justify-center items-center border-black">
-              T 
+              T
             </div>
           </div>
           <div className="hidden md:block mx-auto"  id="navabar">
