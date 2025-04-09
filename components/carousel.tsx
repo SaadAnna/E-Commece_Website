@@ -38,11 +38,12 @@ export const Carousel = ({ products }: Props) => {
         </div>
       )}
 
-    <CardContent className="absolute inset-0 flex flex-col items-center justify-center ">
-
-    <CardTitle className="text-5xl">{currenProduct.name}</CardTitle> 
-    {price && price.unit_amount && <p className="text-xl">${(price.unit_amount / 100).toFixed(2) }</p>}
-    </CardContent>
+      <CardContent className="absolute inset-0 flex flex-col items-center justify-center ">
+        <CardTitle className="text-5xl">{currenProduct.name}</CardTitle>
+        {price && price.unit_amount && (
+          <p className="text-xl">${(price.unit_amount / 100).toFixed(2)}</p>
+        )}
+      </CardContent>
     </Card>
   );
 };
