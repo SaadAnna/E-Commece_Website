@@ -8,7 +8,7 @@ export const ProductsList = ({ products }: Props) => {
   return (
     <div>
       <div>
-        <input type="text" placeholder="Search Your Product..." />
+        <input type="text" placeholder="Search Product..." />
       </div>
       <ul>
         {products.map((product, key) => {
