@@ -1,5 +1,5 @@
 "use client";
-import { Link } from "lucide-react";
+import Link from "next/link";
 import Stripe from "stripe";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import Image from "next/image";
@@ -11,16 +11,16 @@ export const ProductCard = ({ product }: Props) => {
   const price = product.default_price as Stripe.Price;
 
   return (
-    <Link href={"/products/1"}>
+    <Link  href={"/products/1"}>
       <Card>
-        {product.images && product.images[0] && (
+        {product.images && product.images[0] && ( 
           <div className="relative  w-96 h-96 m-auto">
             <Image
               alt={product.name}
               src={product.images[0]}
               width={450}
               height={450}
-              
+              layout="fixed"
               objectFit="cover"
               className="transition-opacity duration-500 ease-in-out"
             />
