@@ -33,7 +33,7 @@ export const ProductCard = ({ product }: Props) => {
             {price && price.unit_amount && (
               <p className="text-xl">${(price.unit_amount / 100).toFixed(2)}</p>
             )}
-            <Button>View Product Details</Button>
+            <Button>View More Details</Button>
           </CardContent>
         </CardHeader>
       </Card>
