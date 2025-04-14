@@ -12,14 +12,14 @@ export const ProductCard = ({ product }: Props) => {
  
   return (
     <Link href={`/products/${product.id}`} className="block h-full">
-      <Card className=" group hover:shadow-2xl transition duration-300 py-0 h-full flex flex-col border border-solid border-black rounded-xl">
+      <Card className=" group hover:shadow-2xl transition duration-300 py-0 h-full  flex flex-col border border-solid border-black rounded-xl">
         {product.images && product.images[0] && (
-          <div className="relative w-full h-60">
+          <div className="relative w-full h-96">
             <Image
               alt={product.name}
               src={product.images[0]}
               layout="fill"
-              objectFit="cover"
+              objectFit="contain"
               className="group-hover:opacity-90 transition-opacity duration-500 ease-in-out rounded-t-lg"
             />
           </div>
