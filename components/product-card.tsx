@@ -11,31 +11,32 @@ export const ProductCard = ({ product }: Props) => {
   const price = product.default_price as Stripe.Price;
 
   return (
-    <Link  href={"/products/1"}>
-      <Card>
-        {product.images && product.images[0] && ( 
-          <div className="relative  w-96 h-96 m-auto">
+    <Link href={"/products/1"} className="block h-full">
+      <Card className=" group hover:shadow-2xl transition duration-300 py-0 h-full flex flex-col border border-solid border-black rounded-xl">
+        {product.images && product.images[0] && (
+          <div className="relative w-full h-60">
             <Image
               alt={product.name}
               src={product.images[0]}
-              width={450}
-              height={450}
-              layout="fixed"
+              layout="fill"
               objectFit="cover"
-              className="transition-opacity duration-500 ease-in-out"
+              className="group-hover:opacity-90 transition-opacity duration-500 ease-in-out rounded-t-lg"
             />
           </div>
         )}
 
-        <CardHeader>
-          <CardTitle>{product.name}</CardTitle>
-          <CardContent>
-            {price && price.unit_amount && (
-              <p className="text-xl">${(price.unit_amount / 100).toFixed(2)}</p>
-            )}
-            <Button>View More Details</Button>
-          </CardContent>
+        <CardHeader className="p-4">
+          <CardTitle className="text-xl font-bold text-black">
+            {product.name}
+          </CardTitle>
         </CardHeader>
+
+        <CardContent className="p-4 flex flex-grow flex-col justify-between">
+          {price && price.unit_amount && (
+            <p className="text-xl">${(price.unit_amount / 100).toFixed(2)}</p>
+          )}
+          <Button className="mt-4 bg-black text-white justify-start">View More Details</Button>
+        </CardContent>
       </Card>
     </Link>
   );
