@@ -11,7 +11,7 @@ export const ProductCard = ({ product }: Props) => {
   const price = product.default_price as Stripe.Price;
  
   return (
-    <Link href={"/products/1"} className="block h-full">
+    <Link href={`/products/${product.id}`} className="block h-full">
       <Card className=" group hover:shadow-2xl transition duration-300 py-0 h-full flex flex-col border border-solid border-black rounded-xl">
         {product.images && product.images[0] && (
           <div className="relative w-full h-60">
@@ -31,9 +31,9 @@ export const ProductCard = ({ product }: Props) => {
           </CardTitle>
         </CardHeader>
 
-        <CardContent className="p-4 flex flex-grow flex-col justify-between">
+        <CardContent className="p-2 flex flex-grow flex-col justify-between">
           {product.description &&  (
-                        <p className="text-gray-600 text-sm mb-2">{}</p>
+                        <p className="text-gray-600 text-lg mb-2">{product.description}</p>
 
           )}
           {price && price.unit_amount && (
