@@ -1,5 +1,14 @@
+"use client";
 import Link from "next/link";
+import {
+  ShoppingCartIcon,
+  Bars3Icon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+import { useCardStore } from "@/store/card-store";
 export const Navbar = () => {
+  const { items } = useCardStore();
+  const cartCount = items.reduce((acc, item) => acc + item.quantity, 0);
   return (
     <header className="py-4 border-b border-black md:border-none sticky top-0 z-10 ">
       <div className="absolute inset-0 backdrop-blur -z-10 md:hidden"></div>
@@ -11,21 +20,31 @@ export const Navbar = () => {
               T
             </div>
           </div>
-          <div className="hidden md:block mx-auto"  id="navabar">
+          <div className="hidden md:block mx-auto" id="navabar">
             <nav className="flex gap-8 text-sm">
               <Link href="/" className="text-black text-base transition">
                 Home
               </Link>
-              <Link href="/products" className="text-black text-base transition">
+              <Link
+                href="/products"
+                className="text-black text-base transition"
+              >
                 Products
               </Link>
-              <Link href="/chekcout" className="text-black text-base transition">
+              <Link
+                href="/chekcout"
+                className="text-black text-base transition"
+              >
                 Checkout
               </Link>
-             
             </nav>
+            <div className="flex items-center space-x-4">
+              <Link href={"/checkout"}>
+                <ShoppingCartIcon />
+                {cartCount > 0 && <span>{cartCount}</span>}
+              </Link>
+            </div>
           </div>
-         
         </div>
       </div>
     </header>
