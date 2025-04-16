@@ -22,9 +22,9 @@ export const ProductDetail = ({ product }: Props) => {
       )}
 
       <div className="md:w-1/2">
-        <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
+        <h1 className="text-4xl font-bold mb-4">{product.name}</h1>
         {product.description && 
-          <p className="text-gray-600 text-lg mb-2">{product.description}</p>
+          <p className="text-neutral-500 text-lg mb-2">{product.description}</p>
         }
             {price && price.unit_amount && (
             <p className="text-xl text-black font-bold">${(price.unit_amount / 100).toFixed(2)}</p>
