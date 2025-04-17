@@ -21,7 +21,7 @@ export const Navbar = () => {
             </div>
           </div>
           <div className="hidden md:block mx-auto" id="navabar">
-            <nav className="flex gap-8 text-sm">
+            <nav className="flex gap-5 text-sm">
               <Link href="/" className="text-black text-base transition">
                 Home
               </Link>
@@ -37,13 +37,9 @@ export const Navbar = () => {
               >
                 Checkout
               </Link>
+            
             </nav>
-            <div className="flex items-center space-x-4">
-              <Link href={"/checkout"}>
-                <ShoppingCartIcon />
-                {cartCount > 0 && <span>{cartCount}</span>}
-              </Link>
-            </div>
+           
           </div>
         </div>
       </div>
