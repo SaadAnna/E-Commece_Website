@@ -36,7 +36,7 @@ export const ProductDetail = ({ product }: Props) => {
       )}
 
       <div className="md:w-1/2">
-        <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
+        <h1 className="text-2xl font-medium mb-4">{product.name}</h1>
         {product.description && 
           <p className="text-neutral-500 text-lg mb-2">{product.description}</p>
         }
