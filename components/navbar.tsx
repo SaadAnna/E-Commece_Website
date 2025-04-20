@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import {
   ShoppingCartIcon,
   Bars3Icon,
@@ -7,8 +8,19 @@ import {
 } from "@heroicons/react/24/outline";
 import { useCardStore } from "@/store/card-store";
 export const Navbar = () => {
+  const [mobileOpen, SetmobileOpen] = useState<bolean>(false);
   const { items } = useCardStore();
   const cartCount = items.reduce((acc, item) => acc + item.quantity, 0);
+
+  useEffect(() => {
+   const handleResize = () => {
+    if (window.innerWidth >= 768) {
+      SetmobileOpen(false)
+    }
+    window.addEventListener("resize", handleResize);
+     return () => window.removerEvenListener()
+   }
+  }, [])
   return (
     <header className="py-4 border-b border-black md:border-none sticky top-0 z-10 ">
       <div className="absolute inset-0 backdrop-blur -z-10 md:hidden"></div>
@@ -37,8 +49,16 @@ export const Navbar = () => {
               >
                 Checkout
               </Link>
-            
+              <div className="flex items-center ">
+            <Link href="/checkout">
+            <ShoppingCartIcon />
+             {cartCount > 0 && 
+              <span>{cartCount}</span>
+             }
+            </Link>
+            </div> 
             </nav>
+         
            
           </div>
         </div>
