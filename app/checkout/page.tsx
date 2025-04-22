@@ -26,7 +26,7 @@ export default function CheckOutPage() {
     <CardHeader >
 
     <CardTitle>
-      Order Summary
+       Your Order Summary
     </CardTitle>
     </CardHeader>
     <CardContent>
