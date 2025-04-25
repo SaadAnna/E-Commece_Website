@@ -1,6 +1,7 @@
 "use client";
 import { useCardStore } from "@/store/card-store";
-import { Button } from "./ui/button";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 export default function CheckOutPage() {
   const { items, removerItem, addItem } = useCardStore();
   const total = items.reduce(
@@ -15,42 +16,48 @@ export default function CheckOutPage() {
 </div>
     );
   }
-   return (
-    <div>
-     <h1>
-      Checkout
-     </h1>
-    <Card>
-      <CardHeader >
-        <CardTitle>
-        Order Summary
-        </CardTitle>
-       </CardHeader>
-      
-    <CardContent>
-    <ul>
-      {items.map((item, key) => {
-       <li key={key}>
-
-         <div> 
-          <span>
-            {item.name}
-          </span>
-          <span>
-            ${(( item.price * item.quantity ) / 100 )toFixed(2)}
-          </span>
-
-       <div className="flex items-center space-x-4 mt-2">
-        <Button onClick={() => removerItem(item.id) } className="bg-white text-black text-lg text-center cursor-pointer" variant={"outline"}>-</Button>
-          <span className="text-lg font-semibold">{item.quantity}</span>
-        <Button onClick={() => addItem(item.id)} className="bg-black text-white text-lg text-center hover:bg-black cursor-pointer hover:text-white" variant={"outline"}>+</Button>
-       </div>
-     </div>
-    </li>
-      })}
-    </ul>
-    </CardContent>
-    </Card>
-    </div>
-  )
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-8 text-center">Checkout</h1>
+      <Card className="max-w-md mx-auto mb-8">
+        <CardHeader>
+          <CardTitle className="text-xl font-bold">Order Summary</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <ul className="space-y-4">
+            {items.map((item) => (
+              <li key={item.id} className="flex flex-col gap-2 border-b pb-2">
+                <div className="flex justify-between">
+                  <span className="font-medium">{item.name}</span>
+                  <span className="font-semibold">
+                    ${((item.price * item.quantity) / 100).toFixed(2)}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => removeItem(item.id)}
+                  >
+                    –
+                  </Button>
+                  <span className="text-lg font-semibold">{item.quantity}</span>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => addItem({ ...item, quantity: 1 })}
+                  >
+                    +
+                  </Button>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-4 border-t pt-2 text-lg font-semibold">
+            Total: ${(total / 100).toFixed(2)}
+          </div>
+        </CardContent>
+      </Card>
+    </div> 
+  );
 }
