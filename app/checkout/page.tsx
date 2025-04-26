@@ -37,13 +37,14 @@ export default function CheckOutPage() {
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => removeItem(item.id)}
+                    onClick={() => removerItem(item.id)}
                   >
                     –
                   </Button>
                   <span className="text-lg font-semibold">{item.quantity}</span>
                   <Button
                     variant="outline"
+                    className="bg-black text-white text-lg text-center hover:bg-black cursor-pointer hover:text-white"
                     size="sm"
                     onClick={() => addItem({ ...item, quantity: 1 })}
                   >
