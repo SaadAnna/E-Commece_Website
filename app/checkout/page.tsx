@@ -21,7 +21,7 @@ export default function CheckOutPage() {
       <h1 className="text-3xl font-bold mb-8 text-center">Checkout</h1>
       <Card className="max-w-md mx-auto mb-8">
         <CardHeader>
-          <CardTitle className="text-xl font-bold">Your Order Summary</CardTitle>
+          <CardTitle className="text-xl font-bold">Order Summary</CardTitle>
         </CardHeader>
         <CardContent>
           <ul className="space-y-4">
