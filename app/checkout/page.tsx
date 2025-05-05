@@ -2,10 +2,11 @@
 import { useCardStore } from "@/store/card-store";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { checkoutAction } from "./checkout-action";
 export default function CheckOutPage() {
-  const { items, removerItem, addItem } = useCardStore();
+  const { items, removerItem, addItem, clearCart } = useCardStore();
   const total = items.reduce(
-    (acc, item) => acc + item.price + item.quantity, 
+    (acc, item) => acc + item.price * item.quantity,
     0
   );
 
@@ -19,7 +20,7 @@ export default function CheckOutPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8 text-center">Checkout</h1>
-      <Card className="max-w-md mx-auto mb-8">
+      <Card className="max-w-md mx-auto mb-8 p-4">
         <CardHeader>
           <CardTitle className="text-xl font-bold">Order Summary</CardTitle>
         </CardHeader>
@@ -54,10 +55,21 @@ export default function CheckOutPage() {
               </li>
             ))}
           </ul>
-          <div className="mt-4 border-t pt-2 text-lg font-semibold">
+          <div className="mt-4  text-lg font-semibold">
             Total: ${(total / 100).toFixed(2)}
           </div>
+         
         </CardContent>
+        <form action={checkoutAction}  className="">
+        <input type="hidden" name="item" value={JSON.stringify(items)} />
+         <Button type="submit" variant="default" className="w-full cursor-pointer ">
+            Proceed to payment
+          </Button>
+          </form>
+         <Button onClick={() => clearCart()} variant="default" className="w-full cursor-pointer mt-0.5">
+            Clear Cart
+          </Button>
+        
       </Card>
     </div> 
   );
