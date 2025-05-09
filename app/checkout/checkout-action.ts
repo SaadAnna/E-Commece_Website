@@ -50,7 +50,7 @@ export async function checkoutAction(formData: FormData): Promise<void> {
       payment_method_types: ["card", "paypal"],
       line_items,
       mode: "payment",
-      success_url: `${finalBaseUrl}/`,
+      success_url: `${finalBaseUrl}/success`,
       cancel_url: `${finalBaseUrl}/checkout`,
     });
     
