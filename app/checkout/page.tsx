@@ -10,7 +10,7 @@ export default function CheckOutPage() {
   // Add client-side rendering safety
   const [isClient, setIsClient] = useState(false);
   const { items, removerItem, addItem, clearCart } = useCardStore();
-  const [error, setError] = useState<string | null>(null);
+  const [error] = useState<string | null>(null);
 
   // Handle client-side hydration
   useEffect(() => {
