@@ -20,7 +20,7 @@ export const ProductCard = ({ product }: Props) => {
               src={product.images[0]}
               layout="fill"
               objectFit="contain"
-              className="group-hover:opacity-90 transition-opacity duration-500 ease-in-out rounded-t-xl"
+              className="group-hover:opacity-90 transition-opacity duration-500 ease-in-out rounded-t-lg"
             />
           </div>
         )}
